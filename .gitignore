@@ -9,3 +9,6 @@
 *.o
 *.narration
 *.adb
+*.blst
+*.bmap
+*.bhex
