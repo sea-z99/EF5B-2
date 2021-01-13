@@ -18,6 +18,7 @@
 #define STOP		P9LR5
 
 #define RT			P90
+#define RT_EN		P95
 #define FOG 		P42
 #define TAIL 		P43
 #define MUSIC_EN 	P44

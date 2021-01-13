@@ -35,6 +35,7 @@ void Spi_CS_High(char id)
 {
 	switch(id)
 	{
+		case 0:CS1HIGH;CS2HIGH;break;
 		case 1:CS1HIGH;break;
 		case 2:CS2HIGH;break;
 	}
@@ -43,6 +44,7 @@ void Spi_CS_Low(char id)
 {
 	switch(id)
 	{
+		case 0:CS1HIGH;CS2HIGH;break;
 		case 1:CS1LOW;break;
 		case 2:CS2LOW;break;
 	}
