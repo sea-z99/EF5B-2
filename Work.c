@@ -75,13 +75,13 @@ void Led_Hello_Check(void)
 	Tail_Status = TAIL;//43位置
 	RT_Status = RT;
 	RT_EN_Status = RT_EN;
-	if(Tail_Status==1&&RT_Status==1&&RT_EN_Status==0)
+	if(Tail_Status==1&&RT_Status==1&&RT_EN_Status==1)
 	{
 		Init_1ms();
 		Timer1_Start();
 		Hello();
 	}
-	if(Tail_Status==1&&RT_Status==1&&RT_EN_Status==1)
+	if(Tail_Status==1&&RT_Status==1&&RT_EN_Status==0)
 	{
 		Init_1ms();
 		LED_All_Open();//3265B全开除转向
@@ -172,14 +172,21 @@ void RT_Mode_Act(void)
 	switch(RT_ActMode)
 	{
 	case Mode0_Status:
+		TEST = 0;
 		Led_RT_AllClose();
 		break;
 	case Mode1_Status:
-		delay_ms(150);//等待B
+		TEST = 1;
+		Clear_RT();
 		Led_RT_WaterOpen();
+		Detect_RT();
 		break;
 	case Mode2_Status:
+		TEST = 1;
+		Clear_RT();
 		Led_RT_AllOpen();
+		delay_ms(1);
+		Detect_RT();
 		break;
 	default:break;
 	}
@@ -189,7 +196,7 @@ void RT_Check_Input(void)
 	RT_Status = RT;//转向
 	RT_EN_Status = RT_EN;//转向使能
 
-	if(RT_Status==0&&RT_EN_Status==0)//全低
+	if(RT_Status==0)//全低
 	{
 		RT_PastMode = RT_NowMode;RT_NowMode = Mode0_Status;
 		if(RT_NowMode==RT_PastMode)

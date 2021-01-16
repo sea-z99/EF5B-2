@@ -14,6 +14,10 @@ void main()
 	PUIE=1; //使能外设中断
 	AIE=1; //总中断开启
 	Led_Hello_Check();
+	if(!Get_Music())
+	{
+		Music_Loop();
+	}
 	while(1)
 	{
 		Tail_Fog_Check_Input();

@@ -7,10 +7,11 @@
 
 #ifndef SOFTSPI_H_
 #define SOFTSPI_H_
-
+#include "main.h"
 void spi_init(void);
 int spi_read(unsigned char addr);
 void SPI_Write_2Byte(unsigned char id,unsigned char addr,unsigned char dat);
+uint8_t SPI_Read(uint8_t id,uint8_t addr);
 void IS31FL3265B_Init(void);
 
 void Tail_One_Init(void);

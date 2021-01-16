@@ -16,6 +16,7 @@
 
 #define SDB1		PBLR2
 #define STOP		P9LR5
+#define TEST 		P3LR0
 
 #define RT			P90
 #define RT_EN		P95
@@ -23,6 +24,5 @@
 #define TAIL 		P43
 #define MUSIC_EN 	P44
 #define WB_EN 		P45
-#define TEST_EN 	P30
 
 #endif /* PINCONFIG_H_ */
