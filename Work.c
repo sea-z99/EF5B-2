@@ -127,7 +127,7 @@ uint8_t SearchPwmFlag(void)
 }
 void PwmDetect(void)
 {
-	uint16_t time=2276;
+	uint16_t time=5690;
 	Timer2_Init();
 	PwmRisingInit();
 	while(PwmDetectStatus.State!=3&&time-->0)
