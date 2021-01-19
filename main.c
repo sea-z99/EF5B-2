@@ -13,7 +13,8 @@ void main()
 	IS31FL3265B_Init();
 	PUIE=1; //使能外设中断
 	AIE=1; //总中断开启
-	Led_Hello_Check();
+	PwmDetect();
+	Led_Hello_Check(SearchPwmFlag());
 	if(!Get_Music())
 	{
 		Music_Loop();
@@ -31,6 +32,16 @@ void int_fun0() __interrupt (0)
 	{
 		T1IF=0;
 		Time_Increase();
+	}
+	if(T2IE & T2IF) //1ms中断
+	{
+		T2IF=0;
+		Hello_Bye_Callback();
+	}
+	if(INT0IE && INT0IF) //INT0中断的响应
+	{
+		INT0IF=0;
+		PwmFromInteruppt();
 	}
 }
 

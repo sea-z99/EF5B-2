@@ -46,6 +46,7 @@ void Led_RT_AllClose(void)
 		SPI_Write_2Byte(CS_U6,i,0);
 	}
 	SPI_Write_2Byte(CS_U6,0x37,0x00);//update
+	TEST=0;
 }
 void Clear_RT(void)
 {
@@ -53,15 +54,21 @@ void Clear_RT(void)
 	SPI_Read(CS_U6,0x16);
 	SPI_Read(CS_U6,0x17);
 }
-uint8_t dat1 = 0;
-uint8_t dat2 = 0;
+
 void Detect_RT(void)
 {
+	uint8_t dat1 = 0;
+	uint8_t dat2 = 0;
 	dat1 = SPI_Read(CS_U6,0x15);
 	dat2 = SPI_Read(CS_U6,0x16);
 	if(dat1>0||(dat2&0x07)>0)
 	{
 		Led_RT_AllClose();
+		TEST=0;
+	}
+	else
+	{
+		TEST=1;
 	}
 }
 void Led_Tail_AllOpen(void)
