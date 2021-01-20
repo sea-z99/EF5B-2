@@ -30,16 +30,27 @@ void Music_Loop(void)
 			case 61: while(Time_Counter==61);break;
 			case 67: while(Time_Counter==67);break;
 			case 96: while(Time_Counter==96);break;
-			case 101:Piano_flash(U6,OUT9);while(Time_Counter==101);break;
-			case 107:Piano_flash(U6,OUT11);while(Time_Counter==107);break;
-			case 117:Piano_flash(U8,OUT2);while(Time_Counter==117);break;
-			case 121:Piano_flash(U8,OUT4);while(Time_Counter==121);break;
-			case 127:Piano_flash(U8,OUT6);while(Time_Counter==127);break;
-			case 137:Piano_flash(U8,OUT6);while(Time_Counter==137);break;
-			case 142:Piano_flash(U8,OUT4);while(Time_Counter==142);break;
-			case 147:Piano_flash(U8,OUT2);while(Time_Counter==147);break;
-			case 157:Piano_flash(U6,OUT11);while(Time_Counter==157);break;
-			case 162:Piano_flash(U6,OUT9);while(Time_Counter==162);break;
+//			case 101:Piano_flash(U6,OUT9);while(Time_Counter==101);break;
+//			case 107:Piano_flash(U6,OUT11);while(Time_Counter==107);break;
+//			case 117:Piano_flash(U8,OUT2);while(Time_Counter==117);break;
+//			case 121:Piano_flash(U8,OUT4);while(Time_Counter==121);break;
+//			case 127:Piano_flash(U8,OUT6);while(Time_Counter==127);break;
+//			case 137:Piano_flash(U8,OUT6);while(Time_Counter==137);break;
+//			case 142:Piano_flash(U8,OUT4);while(Time_Counter==142);break;
+//			case 147:Piano_flash(U8,OUT2);while(Time_Counter==147);break;
+//			case 157:Piano_flash(U6,OUT11);while(Time_Counter==157);break;
+//			case 162:Piano_flash(U6,OUT9);while(Time_Counter==162);break;
+
+			case 101:Piano_flash(U2,OUT6);while(Time_Counter==101);break;
+			case 107:Piano_flash(U2,OUT4);while(Time_Counter==107);break;
+			case 117:Piano_flash(U6,OUT9);while(Time_Counter==117);break;
+			case 121:Piano_flash(U2,OUT12);while(Time_Counter==121);break;
+			case 127:Piano_flash(U2,OUT15);while(Time_Counter==127);break;
+			case 137:Piano_flash(U2,OUT15);while(Time_Counter==137);break;
+			case 142:Piano_flash(U2,OUT12);while(Time_Counter==142);break;
+			case 147:Piano_flash(U2,OUT9);while(Time_Counter==147);break;
+			case 157:Piano_flash(U2,OUT6);while(Time_Counter==157);break;
+			case 162:Piano_flash(U2,OUT4);while(Time_Counter==162);break;
 
 			case 167:while(Time_Counter==167);break;
 			case 174:while(Time_Counter==174);break;
@@ -54,26 +65,47 @@ void Music_Loop(void)
 			case 270:while(Time_Counter==270);break;
 			case 273:while(Time_Counter==273);break;
 
-			case 277:Gangqin_Flash(U6,OUT8);break;
-			case 280:Gangqin_Flash(U6,OUT9);break;
-			case 282:Gangqin_Flash(U6,OUT10);break;
-			case 286:Gangqin_Flash(U6,OUT11);break;
-			case 288:Gangqin_Flash(U8,OUT1);break;
-			case 290:Gangqin_Flash(U8,OUT2);break;
-			case 293:Gangqin_Flash(U8,OUT3);break;
-			case 299:Gangqin_Flash(U8,OUT5);break;
-			case 302:Gangqin_Flash(U8,OUT6);break;
-			case 306:Gangqin_Flash(U8,OUT7);break;
-			case 307:Gangqin_Flash(U8,OUT6);break;
-			case 310:Gangqin_Flash(U8,OUT5);break;
-			case 312:Gangqin_Flash(U8,OUT4);break;
-			case 314:Gangqin_Flash(U8,OUT3);break;
-			case 316:Gangqin_Flash(U8,OUT2);break;
-			case 319:Gangqin_Flash(U8,OUT1);break;
-			case 322:Gangqin_Flash(U6,OUT11);break;
-			case 325:Gangqin_Flash(U6,OUT10);break;
-			case 327:Gangqin_Flash(U6,OUT9);break;
-			case 330:Gangqin_Flash(U6,OUT8);break;
+//			case 277:Gangqin_Flash(U6,OUT8);break;
+//			case 280:Gangqin_Flash(U6,OUT9);break;
+//			case 282:Gangqin_Flash(U6,OUT10);break;
+//			case 286:Gangqin_Flash(U6,OUT11);break;
+//			case 288:Gangqin_Flash(U8,OUT1);break;
+//			case 290:Gangqin_Flash(U8,OUT2);break;
+//			case 293:Gangqin_Flash(U8,OUT3);break;
+//			case 299:Gangqin_Flash(U8,OUT5);break;
+//			case 302:Gangqin_Flash(U8,OUT6);break;
+//			case 306:Gangqin_Flash(U8,OUT7);break;
+//			case 307:Gangqin_Flash(U8,OUT6);break;
+//			case 310:Gangqin_Flash(U8,OUT5);break;
+//			case 312:Gangqin_Flash(U8,OUT4);break;
+//			case 314:Gangqin_Flash(U8,OUT3);break;
+//			case 316:Gangqin_Flash(U8,OUT2);break;
+//			case 319:Gangqin_Flash(U8,OUT1);break;
+//			case 322:Gangqin_Flash(U6,OUT11);break;
+//			case 325:Gangqin_Flash(U6,OUT10);break;
+//			case 327:Gangqin_Flash(U6,OUT9);break;
+//			case 330:Gangqin_Flash(U6,OUT8);break;
+
+			case 277:Gangqin_Flash(U2,OUT7);break;
+			case 280:Gangqin_Flash(U2,OUT6);break;
+			case 282:Gangqin_Flash(U2,OUT5);break;
+			case 286:Gangqin_Flash(U2,OUT4);break;
+			case 288:Gangqin_Flash(U2,OUT8);break;
+			case 290:Gangqin_Flash(U2,OUT9);break;
+			case 293:Gangqin_Flash(U2,OUT10);break;
+			case 299:Gangqin_Flash(U2,OUT11);break;
+			case 302:Gangqin_Flash(U2,OUT13);break;
+			case 306:Gangqin_Flash(U2,OUT15);break;
+			case 307:Gangqin_Flash(U2,OUT15);break;
+			case 310:Gangqin_Flash(U2,OUT13);break;
+			case 312:Gangqin_Flash(U2,OUT11);break;
+			case 314:Gangqin_Flash(U2,OUT10);break;
+			case 316:Gangqin_Flash(U2,OUT9);break;
+			case 319:Gangqin_Flash(U2,OUT8);break;
+			case 322:Gangqin_Flash(U2,OUT4);break;
+			case 325:Gangqin_Flash(U2,OUT5);break;
+			case 327:Gangqin_Flash(U2,OUT6);break;
+			case 330:Gangqin_Flash(U2,OUT7);break;
 
 			case 332:while(Time_Counter==332);break;
 			case 335:while(Time_Counter==335);break;
@@ -118,19 +150,27 @@ void Music_Loop(void)
 			case 841:while(Time_Counter==841);break;
 			case 843:while(Time_Counter==843);break; //left side
 			case 846:while(Time_Counter==846);break;
-			case 848:OUTx_Flash(U6,OUT10);   while(Time_Counter==848);break;  //right side
-			case 851:OUTx_Flash(U8,OUT2);  while(Time_Counter==851);break;
-			case 853:OUTx_Flash(U8,OUT5);  while(Time_Counter==853);break;
-			case 856:OUTx_Flash(U8,OUT7); while(Time_Counter==856);break;
+//			case 848:OUTx_Flash(U6,OUT10);   while(Time_Counter==848);break;  //right side
+//			case 851:OUTx_Flash(U8,OUT2);  while(Time_Counter==851);break;
+//			case 853:OUTx_Flash(U8,OUT5);  while(Time_Counter==853);break;
+//			case 856:OUTx_Flash(U8,OUT7); while(Time_Counter==856);break;
+			case 848:OUTx_Flash(U2,OUT5);   while(Time_Counter==848);break;  //right side
+			case 851:OUTx_Flash(U2,OUT9);  while(Time_Counter==851);break;
+			case 853:OUTx_Flash(U2,OUT12);  while(Time_Counter==853);break;
+			case 856:OUTx_Flash(U2,OUT15); while(Time_Counter==856);break;
 
 			case 858:while(Time_Counter==858);break;
 			case 861:while(Time_Counter==861);break;
 			case 863:while(Time_Counter==863);break;
 
-			case 865:OUTx_Flash(U6,OUT10);  while(Time_Counter==865);break;  //right side
-			case 867:OUTx_Flash(U8,OUT2);  while(Time_Counter==867);break;
-			case 871:OUTx_Flash(U8,OUT5);  while(Time_Counter==871);break;
-			case 872:OUTx_Flash(U8,OUT7);  while(Time_Counter==872);break;
+//			case 865:OUTx_Flash(U6,OUT10);  while(Time_Counter==865);break;  //right side
+//			case 867:OUTx_Flash(U8,OUT2);  while(Time_Counter==867);break;
+//			case 871:OUTx_Flash(U8,OUT5);  while(Time_Counter==871);break;
+//			case 872:OUTx_Flash(U8,OUT7);  while(Time_Counter==872);break;
+			case 865:OUTx_Flash(U2,OUT5);  while(Time_Counter==865);break;  //right side
+			case 867:OUTx_Flash(U2,OUT9);  while(Time_Counter==867);break;
+			case 871:OUTx_Flash(U2,OUT12);  while(Time_Counter==871);break;
+			case 872:OUTx_Flash(U2,OUT15);  while(Time_Counter==872);break;
 
 			case 875:Side_flash(0x80);while(Time_Counter==875);break;
 			case 876: SCAN(10);while(Time_Counter==876);break;
@@ -158,13 +198,20 @@ void Music_Loop(void)
 
 			case 1155: Step2(); while(Time_Counter==1155);break;		// Middle
 			case 1160: Step3(); while(Time_Counter==1160);break; //right
-			case 1165: OUTx_Flash(U8,OUT7);while(Time_Counter==1165);break;
-			case 1167: OUTx_Flash(U8,OUT6);while(Time_Counter==1167);break;
-			case 1170: OUTx_Flash(U8,OUT5);while(Time_Counter==1170);break;
-			case 1172: OUTx_Flash(U8,OUT3);while(Time_Counter==1172);break;
-			case 1175: OUTx_Flash(U8,OUT1);while(Time_Counter==1175);break;
-			case 1176: OUTx_Flash(U6,OUT11);while(Time_Counter==1176);break;
-			case 1179: OUTx_Flash(U6,OUT9);while(Time_Counter==1179);break;
+//			case 1165: OUTx_Flash(U8,OUT7);while(Time_Counter==1165);break;
+//			case 1167: OUTx_Flash(U8,OUT6);while(Time_Counter==1167);break;
+//			case 1170: OUTx_Flash(U8,OUT5);while(Time_Counter==1170);break;
+//			case 1172: OUTx_Flash(U8,OUT3);while(Time_Counter==1172);break;
+//			case 1175: OUTx_Flash(U8,OUT1);while(Time_Counter==1175);break;
+//			case 1176: OUTx_Flash(U6,OUT11);while(Time_Counter==1176);break;
+//			case 1179: OUTx_Flash(U6,OUT9);while(Time_Counter==1179);break;
+			case 1165: OUTx_Flash(U2,OUT15);while(Time_Counter==1165);break;
+			case 1167: OUTx_Flash(U2,OUT14);while(Time_Counter==1167);break;
+			case 1170: OUTx_Flash(U2,OUT12);while(Time_Counter==1170);break;
+			case 1172: OUTx_Flash(U2,OUT10);while(Time_Counter==1172);break;
+			case 1175: OUTx_Flash(U2,OUT8);while(Time_Counter==1175);break;
+			case 1176: OUTx_Flash(U2,OUT4);while(Time_Counter==1176);break;
+			case 1179: OUTx_Flash(U2,OUT6);while(Time_Counter==1179);break;
 
 			case 1181:while(Time_Counter==1181);break;
 			case 1184:while(Time_Counter==1184);break;
