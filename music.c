@@ -14,7 +14,7 @@
 extern uint32_t Time_Counter;
 void Music_Loop(void)
 {
-	delay_ms(10000);//—”≥Ÿ10s∆Ù∂Ø
+	//delay_ms(10000);//—”≥Ÿ10s∆Ù∂Ø
 	Init_42ms();
 	Timer1_Start();
 	while(1)
@@ -43,14 +43,14 @@ void Music_Loop(void)
 
 			case 101:Piano_flash(U2,OUT6);while(Time_Counter==101);break;
 			case 107:Piano_flash(U2,OUT4);while(Time_Counter==107);break;
-			case 117:Piano_flash(U6,OUT9);while(Time_Counter==117);break;
+			case 117:Piano_flash(U2,OUT9);while(Time_Counter==117);break;
 			case 121:Piano_flash(U2,OUT12);while(Time_Counter==121);break;
 			case 127:Piano_flash(U2,OUT15);while(Time_Counter==127);break;
 			case 137:Piano_flash(U2,OUT15);while(Time_Counter==137);break;
 			case 142:Piano_flash(U2,OUT12);while(Time_Counter==142);break;
 			case 147:Piano_flash(U2,OUT9);while(Time_Counter==147);break;
-			case 157:Piano_flash(U2,OUT6);while(Time_Counter==157);break;
-			case 162:Piano_flash(U2,OUT4);while(Time_Counter==162);break;
+			case 157:Piano_flash(U2,OUT4);while(Time_Counter==157);break;
+			case 162:Piano_flash(U2,OUT6);while(Time_Counter==162);break;
 
 			case 167:while(Time_Counter==167);break;
 			case 174:while(Time_Counter==174);break;
