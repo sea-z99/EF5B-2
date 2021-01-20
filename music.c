@@ -234,7 +234,7 @@ void Music_Loop(void)
 			case 1385:while(Time_Counter==1385);break;
 			case 1406:Step2(); while(Time_Counter==1406);break;
 			case 1426:Step3(); while(Time_Counter==1426);break;
-			case 1444:while(Time_Counter==1444);break;
+			case 1444:End();while(Time_Counter==1444);break;
 			case 1485:Side_flash(0x80);SCAN(40);while(Time_Counter==1485);break;
 
 			case 1500:Timer1_Stop();break; //disable Timer0

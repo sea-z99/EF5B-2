@@ -155,7 +155,25 @@ void Step3(void)
 	}
 	U2_SPI_Write_2Byte(0x37,0x00);//update
 }
-
+void End(void)
+{
+	uint8_t i,j;
+	for(i=0;i<15;i++)
+	{
+		for(j=OUT1;j<=OUT9;j++)
+		{
+			U6_SPI_Write_2Byte(j, 0xFF);
+		}
+		U6_SPI_Write_2Byte(0x37,0x00);//update
+		Delayms(30);
+		for(j=OUT1;j<=OUT9;j++)
+		{
+			U6_SPI_Write_2Byte(j, 0);
+		}
+		U6_SPI_Write_2Byte(0x37,0x00);//update
+		Delayms(30);
+	}
+}
 void Piano_flash(uint8_t device,uint8_t ch1)
 {
 	if(device==U2)

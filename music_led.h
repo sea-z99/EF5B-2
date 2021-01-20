@@ -29,5 +29,6 @@ void OUTx_Flash(uint8_t device,uint8_t channel);
 void Side_flash(uint8_t pwm) ;
 void Side_Liushui(uint8_t h);
 void Gangqin_Flash(uint8_t device,uint8_t channel);
+void End(void);
 
 #endif /* MUSIC_H_ */
