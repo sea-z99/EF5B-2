@@ -79,7 +79,7 @@ void Led_Tail_AllOpen(void)
 	SPI_Write_2Byte(CS_U2,OUT3,0x55);//25%
 	for(i=OUT4;i<=OUT15;i++)
 	{
-		SPI_Write_2Byte(CS_U2,i,0x3F);//25%
+		SPI_Write_2Byte(CS_U2,i,0xDE);//86%
 	}
 	SPI_Write_2Byte(CS_U2,0x37,0x00);//update
 }
