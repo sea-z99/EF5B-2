@@ -11,6 +11,8 @@
 #include "SoftSpi.h"
 #include "HelloBye.h"
 
+#define HelloByeTest 1
+
 uint32_t Time_Counter = 0;
 uint32_t Hello_Bye_Counter = 0;
 
@@ -177,19 +179,35 @@ uint8_t Get_Music(void)
 void Led_Hello_Check(uint8_t Flag)
 {
 	Tail_Status = TAIL;//43位置
-	if(Tail_Status==1&&Flag==1)
+	RT_Status = RT;//转向
+	WB_Status = WB_EN;
+	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
 	{
 		Init_1ms();
 		Timer1_Start();
 		Hello();
 	}
-	if(Tail_Status==1&&Flag==2)
+	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
 	{
 		Init_1ms();
 		LED_All_Open();//3265B全开除转向
 		Timer1_Start();
 		Bye();
 	}
+//	Tail_Status = TAIL;//43位置
+//	if(Tail_Status==1&&Flag==1)
+//	{
+//		Init_1ms();
+//		Timer1_Start();
+//		Hello();
+//	}
+//	if(Tail_Status==1&&Flag==2)
+//	{
+//		Init_1ms();
+//		LED_All_Open();//3265B全开除转向
+//		Timer1_Start();
+//		Bye();
+//	}
 }
 void Tail_Fog_Check_Input(void)
 {
