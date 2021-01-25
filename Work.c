@@ -184,14 +184,13 @@ void Led_Hello_Check(uint8_t Flag)
 	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
 	{
 		Init_1ms();
-		Timer1_Start();
 		Hello();
 	}
 	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
 	{
 		Init_1ms();
 		LED_All_Open();//3265B全开除转向
-		Timer1_Start();
+		//Timer1_Start();
 		Bye();
 	}
 //	Tail_Status = TAIL;//43位置
