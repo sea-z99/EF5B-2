@@ -14,7 +14,7 @@
 extern uint32_t Time_Counter;
 void Music_Loop(void)
 {
-	//delay_ms(10000);//—”≥Ÿ10s∆Ù∂Ø
+	delay_ms(10000);//—”≥Ÿ10s∆Ù∂Ø
 	Init_42ms();
 	Timer1_Start();
 	while(1)
