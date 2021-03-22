@@ -12,12 +12,17 @@ void Tail_Fog_Check_Input(void);
 void Mode_Act(void);
 void RT_Check_Input(void);
 void RT_Mode_Act(void);
-void Led_Hello_Check(void);
+void Led_Hello_Check(uint8_t Flag);
 void Init_42ms(void);
 void Init_1ms(void);
 void Timer1_Start(void);
 void Timer1_Stop(void);
 uint8_t Get_Music(void);
+void InitPwmInit(void);
+void PwmFromInteruppt(void);
+void PwmDetect(void);
+uint8_t SearchPwmFlag(void);
+void Hello_Bye_Callback(void);
 
 #define Mode0_Status 1<<0
 #define Mode1_Status 1<<1

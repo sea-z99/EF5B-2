@@ -30,5 +30,6 @@
 void Time_Increase(void);
 void Time_Clear(void);
 void Music_Loop(void);
+void Music_Stop(void);
 
 #endif /* MUSIC_H_ */

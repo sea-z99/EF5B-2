@@ -19,16 +19,25 @@ void Hello(void)
 	{
 		switch(Time_Counter)
 		{
-		case  0:break;//Æô¶¯µÈ´ı
-		case  50:Led_RT_WaterOpen();delay_ms(200);delay_ms(200);Led_RT_WaterClose();break;//Æô¶¯×ÔÉí×ªÏòÁ÷Ë®3*50ms,µÈ´ıAÁ÷Ë®200ms,ÁÁ200ms£¬¼ä¸ô300ms,×Ü850
-		case  900:Led_RT_WaterOpen();delay_ms(200);delay_ms(200);Led_RT_WaterClose();break;//Æô¶¯×ÔÉí×ªÏòÁ÷Ë®3*50ms,µÈ´ıAÁ÷Ë®200ms,ÁÁ200ms£¬¼ä¸ô300ms,×Ü850
-		case  1750:Led_Tail715_WaterOpen(80);break;//Æô¶¯×ÔÉí×ªÏò30%PWMÁ÷Ë®12*50ms,µÈ´ıBÁ÷Ë®500ms,¼ä¸ô300ms×Ü1400ms
-		case  3150:Led_Tail715_WaterOpen(255);break;//Æô¶¯×ÔÉí×ªÏò30%PWMÁ÷Ë®12*50ms,µÈ´ıBÁ÷Ë®500ms,¼ä¸ô300ms×Ü1400ms
-		case  4550:Led_Tail23_BreathOpen();break;//Æô¶¯×ÔÉíÎ»ÖÃ23 ºôÎüµãÁÁ255ms,¼ä¸ô300ms×Ü555ms
-		case  5105:Led_Tail1_BreathOpen();break;//Æô¶¯×ÔÉí1 ºôÎüµãÁÁ255ms,¼ä¸ô300ms×Ü555ms
-		case  5660:break;//´ËÊ±AµÆÎ»ÖÃ6ºôÎü¿ª
-		case  6215:Timer1_Stop();for(;;);break;//Í£Ö¹¼ÆÊ±£¬½øÈëËÀÑ­»·
-		default:break;
+//		case  0:Timer1_Start();break;//???????
+//		case  50:Led_RT_WaterOpen();delay_ms(80);delay_ms(200);Led_RT_WaterClose();break;//å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´3*20ms,ç­‰å¾…A 4*20ms,äº®300ms,ç­‰å¾…200ms,æ€»540
+//		case  590:Led_RT_WaterOpen();delay_ms(80);delay_ms(200);Led_RT_WaterClose();break;//60msç­‰å¾…B,å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´4*20ms,äº®300ms,ç­‰å¾…200ms,æ€»540
+//		case  1130:Led_Tail715_WaterOpen(80);break;//???????????30%PWM???12*50ms,???B???500ms,???300ms??1400ms
+//		case  2530:Led_Tail715_WaterOpen(255);break;//???????????30%PWM???12*50ms,???B???500ms,???300ms??1400ms
+//		case  3930:Led_Tail23_BreathOpen();break;//????????Î»??23 ????????255ms,???300ms??555ms
+//		case  4485:Led_Tail1_BreathOpen();break;//????????1 ????????255ms,???300ms??555ms
+//		case  5040:break;//???A??Î»??6??????
+//		case  5595:Timer1_Stop();for(;;);break;//????????????????
+//		default:break;
+		 case  0:break;//å¯åŠ¨ç­‰å¾…
+		 case  50:Led_Tail715_WaterOpen(80);break;//å¯åŠ¨è‡ªèº«è½¬å‘30%PWMæµæ°´12*50ms,ç­‰å¾…Bæµæ°´500ms,é—´éš”300msæ€»1400ms
+		 case  1450:Led_Tail715_WaterOpen(255);break;//å¯åŠ¨è‡ªèº«è½¬å‘30%PWMæµæ°´12*50ms,ç­‰å¾…Bæµæ°´500ms,é—´éš”300msæ€»1400ms
+		 case  2850:Led_Tail23_BreathOpen();break;//å¯åŠ¨è‡ªèº«ä½ç½®23 å‘¼å¸ç‚¹äº®255ms,é—´éš”300msæ€»555ms
+		 case  3405:Led_Tail1_BreathOpen();break;//å¯åŠ¨è‡ªèº«1 å‘¼å¸ç‚¹äº®255ms,é—´éš”300msæ€»555ms
+		 case  3960:break;//æ­¤æ—¶Aç¯ä½ç½®6å‘¼å¸å¼€
+		 case  4515:Timer1_Stop();for(;;);break;//åœæ­¢è®¡æ—¶ï¼Œè¿›å…¥æ­»å¾ªç¯
+		 default:break;
+
 		}
 	}
 }
@@ -38,17 +47,26 @@ void Bye(void)
 	{
 		switch(Time_Counter)
 		{
-		case  0:break;//Æô¶¯µÈ´ı
-		case  50:Led_RT_WaterOpen();delay_ms(200);Led_RT_WaterClose();break;//Æô¶¯×ÔÉí×ªÏòÁ÷Ë®3*50ms,µÈ´ıAÁ÷Ë®200ms,¼ä¸ô500ms,×Ü850
-		case  900:Led_RT_WaterOpen();delay_ms(200);Led_RT_WaterClose();break;//Æô¶¯×ÔÉí×ªÏòÁ÷Ë®3*50ms,µÈ´ıAÁ÷Ë®200ms,¼ä¸ô500ms,×Ü850
-		case  1750:break;//µÈ´ıA¹Ø±ÕÖÆ¶¯µÆ100ms,×Ü300ms
-		case  2050:break;//µÈ´ıA ºôÎü255ms,¼ä¸ô300ms,×Ü555ms
-		case  2605:Led_Tail1_BreathClose();break;//AºôÎü¹Ø255ms,BºôÎü¹Ø255ms£¬¼ä¸ô300ms,×Ü555ms
-		case  3160:Led_Tail23_BreathClose();break;//AºôÎü¹Ø255ms,BºôÎü¹Ø255ms£¬¼ä¸ô300ms,×Ü555ms
-		case  3715:delay_ms(300);Led_Tail715_WaterOpen(80);break;//µÈ´ıAÁ÷Ë®300ms,Æô¶¯×ÔÉí×ªÏòÁ÷Ë®12*50ms£¬¼ä¸ô300ms,×Ü1200ms
-		case  5115:delay_ms(300);Led_Tail715_WaterOpen(0);break;//µÈ´ıAÁ÷Ë®300ms,Æô¶¯×ÔÉí×ªÏòÁ÷Ë®12*50ms£¬¼ä¸ô300ms,×Ü1200ms
-		case  6515:Timer1_Stop();for(;;);break;//µÆ¹âÈ«Ãğ£¬½øÈëËÀÑ­»·
-		default:break;
+//		case  0:Timer1_Start();break;//???????
+//		case  50:Led_RT_WaterOpen();delay_ms(280);Led_RT_WaterClose();break;//60msç­‰å¾…B,å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´4*20ms,é—´éš”200ms,ç­‰å¾…200ms,æ€»540
+//		case  590:Led_RT_WaterOpen();delay_ms(280);Led_RT_WaterClose();break;//60msç­‰å¾…B,å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´4*20ms,é—´éš”200ms,ç­‰å¾…200ms,æ€»540
+//		case  1130:break;//???A????????100ms,??300ms
+//		case  1430:break;//???A ????255ms,???300ms,??555ms
+//		case  1985:Led_Tail1_BreathClose();break;//A??????255ms,B??????255ms?????300ms,??555ms
+//		case  2540:Led_Tail23_BreathClose();break;//A??????255ms,B??????255ms?????300ms,??555ms
+//		case  3095:delay_ms(500);Led_Tail715_WaterClose(80);break;//???A???300ms,??????????????12*50ms?????300ms,??1400ms
+//		case  4495:delay_ms(500);Led_Tail715_WaterClose(0);break;//???A???300ms,??????????????12*50ms?????300ms,??1400ms
+//		case  5895:Timer1_Stop();for(;;);break;//??????????????
+//		default:break;
+		 case  0:break;//å¯åŠ¨ç­‰å¾…
+		 case  50:break;//ç­‰å¾…Aå…³é—­åˆ¶åŠ¨ç¯100ms,æ€»300ms
+		 case  350:break;//ç­‰å¾…A å‘¼å¸255ms,é—´éš”300ms,æ€»555ms
+		 case  905:Led_Tail1_BreathClose();break;//Aå‘¼å¸å…³255ms,Bå‘¼å¸å…³255msï¼Œé—´éš”300ms,æ€»555ms
+		 case  1460:Led_Tail23_BreathClose();break;//Aå‘¼å¸å…³255ms,Bå‘¼å¸å…³255msï¼Œé—´éš”300ms,æ€»555ms
+		 case  2015:delay_ms(500);Led_Tail715_WaterClose(80);break;//ç­‰å¾…Aæµæ°´500ms,å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´12*50msï¼Œé—´éš”300ms,æ€»1400ms
+		 case  3415:delay_ms(500);Led_Tail715_WaterClose(0);break;//ç­‰å¾…Aæµæ°´500ms,å¯åŠ¨è‡ªèº«è½¬å‘æµæ°´12*50msï¼Œé—´éš”300ms,æ€»1400ms
+		 case  4815:Timer1_Stop();for(;;);break;//ç¯å…‰å…¨ç­ï¼Œè¿›å…¥æ­»å¾ªç¯
+		 default:break;
 		}
 	}
 }
