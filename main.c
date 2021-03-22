@@ -6,6 +6,7 @@
 #include "music.h"
 #include "music_led.h"
 //主函数
+uint8_t music_flag=0;
 void main()
 {
 	Init_OSC(2); //将系统时钟初始化为32M、使用外部晶振，
@@ -15,12 +16,17 @@ void main()
 	AIE=1; //总中断开启
 	PwmDetect();
 	Led_Hello_Check(SearchPwmFlag());
-	if(!Get_Music())
-	{
-		Music_Loop();
-	}
 	while(1)
 	{
+		if(!Get_Music()&&music_flag==0)
+		{
+			music_flag=1;
+			Music_Loop();
+		}
+		else if(Get_Music()&&music_flag==1)
+		{
+			Music_Stop();
+		}
 		Tail_Fog_Check_Input();
 		RT_Check_Input();
 	}
