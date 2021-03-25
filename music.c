@@ -12,17 +12,40 @@
 #include "music.h"
 #include "music_led.h"
 extern uint32_t Time_Counter;
+uint32_t Temp_Time_Counter;
+uint8_t Music_Flag = 0;
+uint8_t Delay_Flag = 0;
 void Music_Stop(void)
 {
 	Timer1_Stop();
+    Music_Flag = 0;
+    Temp_Time_Counter = 0;
+    Delay_Flag = 0;
+}
+void Music_Start(void)
+{
+    if(Music_Flag==0)
+    {
+        Music_Flag = 1;
+        Init_42ms();
+        Timer1_Start();
+    }
 }
 void Music_Loop(void)
 {
-	delay_ms(10000);//—”≥Ÿ10s∆Ù∂Ø
-	Init_42ms();
-	Timer1_Start();
-	while(1)
-	{
+	Music_Start();
+    while(MUSIC_EN==0)
+    {
+        if(Delay_Flag==0)
+        {
+            switch(Time_Counter)
+            {
+                case 250:Delay_Flag = 1;Time_Counter = 0;;break;
+                default:break;
+            }
+        }
+        else
+        {
 		switch(Time_Counter)
 		{
 			case  2: Side_flash(0x10);while(Time_Counter==2); break;
@@ -185,6 +208,8 @@ void Music_Loop(void)
 
 			case 1500:Timer1_Stop();break; //disable Timer0
 			default:break;
+			}
+		  }
 		}
-	}
+		Music_Stop();
 }

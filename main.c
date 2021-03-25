@@ -9,7 +9,7 @@
 uint8_t music_flag=0;
 void main()
 {
-	Init_OSC(2); //将系统时钟初始化为32M、使用外部晶振，
+	Init_OSC(1); //将系统时钟初始化为32M、使用外部晶振，
 	Init_GPIO();
 	IS31FL3265B_Init();
 	PUIE=1; //使能外设中断
@@ -18,15 +18,10 @@ void main()
 	Led_Hello_Check(SearchPwmFlag());
 	while(1)
 	{
-		if(!Get_Music()&&music_flag==0)
-		{
-			music_flag=1;
-			Music_Loop();
-		}
-		else if(Get_Music()&&music_flag==1)
-		{
-			Music_Stop();
-		}
+        if(Get_Music()==0)
+        {
+            Music_Loop();
+        }
 		Tail_Fog_Check_Input();
 		RT_Check_Input();
 	}
