@@ -122,6 +122,22 @@ void Led_RT_WaterClose(void)//转向流水关
 	}
 	SPI_Write_2Byte(CS_U6,0x37,0x00);//update
 }
+void Led_Tail715_OpenMax(void)//位置流水开，50ms
+{
+	char i;
+	for(i=OUT15;i>=OUT8;i--)
+	{
+		SPI_Write_2Byte(CS_U2,i,0xFF);//32%
+		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(LED_Interval);
+	}
+	for(i=OUT4;i<=OUT7;i++)
+	{
+		SPI_Write_2Byte(CS_U2,i,0xBF);//32%
+		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(LED_Interval);
+	}
+}
 void Led_Tail715_WaterOpen(uint8_t pwm)//位置流水开，50ms
 {
 	char i;
@@ -158,11 +174,15 @@ void Led_Tail715_WaterClose(uint8_t pwm)//位置流水关
 void Led_Tail23_BreathOpen(void)//位置呼吸开
 {
 	static uint8_t i;
-	for(i=0;i<0xFF;i++)
+	for(i=0;i<0x55;i++)
 	{
 		SPI_Write_2Byte(CS_U2,OUT2,i);
 		SPI_Write_2Byte(CS_U2,OUT3,i);
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(1);
+	}
+	for(i=0x55;i<0xFF;i++)
+	{
 		delay_ms(1);
 	}
 }
@@ -184,10 +204,14 @@ void Led_Tail23_BreathClose(void)//位置呼吸关
 void Led_Tail1_BreathOpen(void)
 {
 	static uint8_t i;
-	for(i=0;i<0xFF;i++)
+	for(i=0;i<0x3F;i++)
 	{
 		SPI_Write_2Byte(CS_U2,OUT1,i);
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(1);
+	}
+	for(i=0x3F;i<0xFF;i++)
+	{
 		delay_ms(1);
 	}
 }

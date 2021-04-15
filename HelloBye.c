@@ -31,7 +31,7 @@ void Hello(void)
 //		default:break;
 		 case  0:break;//启动等待
 		 case  50:Led_Tail715_WaterOpen(80);break;//启动自身转向30%PWM流水12*50ms,等待B流水500ms,间隔300ms总1400ms
-		 case  1450:Led_Tail715_WaterOpen(255);break;//启动自身转向30%PWM流水12*50ms,等待B流水500ms,间隔300ms总1400ms
+		 case  1450:Led_Tail715_OpenMax();break;//启动自身转向30%PWM流水12*50ms,等待B流水500ms,间隔300ms总1400ms
 		 case  2850:Led_Tail23_BreathOpen();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
 		 case  3405:Led_Tail1_BreathOpen();break;//启动自身1 呼吸点亮255ms,间隔300ms总555ms
 		 case  3960:break;//此时A灯位置6呼吸开
