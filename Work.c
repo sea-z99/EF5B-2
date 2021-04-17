@@ -89,6 +89,27 @@ void Timer2_Stop(void)
 	T2ON = 0;		//T2定时器停止
 	T2IE = 0;
 }
+void Timer3_Init(void)//1000
+{
+        T3CTL = 0xB1;   //      64m/8
+        T3H=0;
+        T3L=0;
+        T3REH=0x0F;             //4000
+        T3REL=0xA0;
+        Timer3_Start();
+}
+void Timer3_Start(void)
+{
+        T3ON = 1;               //T3定时器启动
+        T3IF = 0;
+        T3IE = 1;
+}
+void Timer3_Stop(void)
+{
+        T3IF = 0;
+        T3ON = 0;               //T2定时器停止
+        T3IE = 0;
+}
 void PwmRisingInit(void)
 {
 	INT0IF=0;
