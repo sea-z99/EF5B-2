@@ -30,12 +30,12 @@ void Hello(void)
 //		case  5595:Timer1_Stop();for(;;);break;//????????????????
 //		default:break;
 		 case  0:break;//启动等待
-		 case  50:Led_Tail715_WaterOpen(80);break;//启动自身转向30%PWM流水12*50ms,等待B流水500ms,间隔300ms总1400ms
-		 case  1450:Led_Tail715_OpenMax();break;//启动自身转向30%PWM流水12*50ms,等待B流水500ms,间隔300ms总1400ms
-		 case  2850:Led_Tail23_BreathOpen();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
-		 case  3405:Led_Tail1_BreathOpen();break;//启动自身1 呼吸点亮255ms,间隔300ms总555ms
-		 case  3960:break;//此时A灯位置6呼吸开
-		 case  4515:Timer1_Stop();for(;;);break;//停止计时，进入死循环
+		 case  50:Led_Tail715_WaterOpen(80);break;//启动自身转向30%PWM流水12*40ms,等待B流水400ms,间隔20总900ms
+		 case  950:Led_Tail715_OpenMax();break;//启动自身转向30%PWM流水12*40ms,等待B流水400ms,间隔50ms总900ms
+		 case  1850:Led_Tail23_BreathOpen();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
+		 //case  3405:Led_Tail1_BreathOpen();break;//启动自身1 呼吸点亮255ms,间隔300ms总555ms
+		 //case  3960:break;//此时A灯位置6呼吸开
+		 case  3955:Timer1_Stop();for(;;);break;//停止计时，进入死循环
 		 default:break;
 
 		}
@@ -61,11 +61,11 @@ void Bye(void)
 		 case  0:break;//启动等待
 		 case  50:break;//等待A关闭制动灯100ms,总300ms
 		 case  350:break;//等待A 呼吸255ms,间隔300ms,总555ms
-		 case  905:Led_Tail1_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
-		 case  1460:Led_Tail23_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
-		 case  2015:delay_ms(500);Led_Tail715_WaterClose(80);break;//等待A流水500ms,启动自身转向流水12*50ms，间隔300ms,总1400ms
-		 case  3415:delay_ms(500);Led_Tail715_WaterClose(0);break;//等待A流水500ms,启动自身转向流水12*50ms，间隔300ms,总1400ms
-		 case  4815:Timer1_Stop();for(;;);break;//灯光全灭，进入死循环
+		 case  650:Led_Tail1_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
+		 //case  1460:Led_Tail23_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
+		 case  1250:delay_ms(400);Led_Tail715_WaterClose(80);break;//等待A流水400ms,启动自身转向流水12*40ms，间隔20ms,总900ms
+		 case  2150:delay_ms(400);Led_Tail715_WaterClose(0);break;//等待A流水400ms,启动自身转向流水12*40ms，间20ms,总900ms
+		 case  3060:Timer1_Stop();for(;;);break;//灯光全灭，进入死循环
 		 default:break;
 		}
 	}

@@ -129,13 +129,13 @@ void Led_Tail715_OpenMax(void)//位置流水开，50ms
 	{
 		SPI_Write_2Byte(CS_U2,i,0xFF);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 	for(i=OUT4;i<=OUT7;i++)
 	{
 		SPI_Write_2Byte(CS_U2,i,0xBF);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 }
 void Led_Tail715_WaterOpen(uint8_t pwm)//位置流水开，50ms
@@ -145,13 +145,13 @@ void Led_Tail715_WaterOpen(uint8_t pwm)//位置流水开，50ms
 	{
 		SPI_Write_2Byte(CS_U2,i,pwm);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 	for(i=OUT4;i<=OUT7;i++)
 	{
 		SPI_Write_2Byte(CS_U2,i,pwm);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 }
 void Led_Tail715_WaterClose(uint8_t pwm)//位置流水关
@@ -161,13 +161,13 @@ void Led_Tail715_WaterClose(uint8_t pwm)//位置流水关
 	{
 		SPI_Write_2Byte(CS_U2,i,pwm);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 	for(i=OUT8;i<=OUT15;i++)
 	{
 		SPI_Write_2Byte(CS_U2,i,pwm);//32%
 		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
-		delay_ms(LED_Interval);
+		delay_ms(40);
 	}
 
 }
@@ -182,6 +182,17 @@ void Led_Tail23_BreathOpen(void)//位置呼吸开
 		delay_ms(1);
 	}
 	for(i=0x55;i<0xFF;i++)
+	{
+		delay_ms(1);
+	}
+
+	for(i=0;i<0x3F;i++)
+	{
+		SPI_Write_2Byte(CS_U2,OUT1,i);
+		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(1);
+	}
+	for(i=0x3F;i<0xFF;i++)
 	{
 		delay_ms(1);
 	}
@@ -225,6 +236,17 @@ void Led_Tail1_BreathClose(void)
 		delay_ms(1);
 	}
 	SPI_Write_2Byte(CS_U2,OUT1,0);
+	SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+
+	for(i=0xFF;i>0;i--)
+	{
+		SPI_Write_2Byte(CS_U2,OUT2,i);
+		SPI_Write_2Byte(CS_U2,OUT3,i);
+		SPI_Write_2Byte(CS_U2,0x37,0x00);//update
+		delay_ms(1);
+	}
+	SPI_Write_2Byte(CS_U2,OUT2,0);
+	SPI_Write_2Byte(CS_U2,OUT3,0);
 	SPI_Write_2Byte(CS_U2,0x37,0x00);//update
 }
 void LED_All_Open(void)
