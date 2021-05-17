@@ -13,59 +13,43 @@
 
 extern uint32_t Time_Counter;
 
+extern void test1(void);
+extern void test2(void);
 void Hello(void)
 {
 	while(1)
 	{
 		switch(Time_Counter)
 		{
-//		case  0:Timer1_Start();break;//???????
-//		case  50:Led_RT_WaterOpen();delay_ms(80);delay_ms(200);Led_RT_WaterClose();break;//启动自身转向流水3*20ms,等待A 4*20ms,亮300ms,等待200ms,总540
-//		case  590:Led_RT_WaterOpen();delay_ms(80);delay_ms(200);Led_RT_WaterClose();break;//60ms等待B,启动自身转向流水4*20ms,亮300ms,等待200ms,总540
-//		case  1130:Led_Tail715_WaterOpen(80);break;//???????????30%PWM???12*50ms,???B???500ms,???300ms??1400ms
-//		case  2530:Led_Tail715_WaterOpen(255);break;//???????????30%PWM???12*50ms,???B???500ms,???300ms??1400ms
-//		case  3930:Led_Tail23_BreathOpen();break;//????????λ??23 ????????255ms,???300ms??555ms
-//		case  4485:Led_Tail1_BreathOpen();break;//????????1 ????????255ms,???300ms??555ms
-//		case  5040:break;//???A??λ??6??????
-//		case  5595:Timer1_Stop();for(;;);break;//????????????????
-//		default:break;
 		 case  0:break;//启动等待
-		 case  50:Led_Tail715_WaterOpen(80);break;//启动自身转向30%PWM流水12*40ms,等待B流水400ms,间隔20总900ms
-		 case  950:Led_Tail715_OpenMax();break;//启动自身转向30%PWM流水12*40ms,等待B流水400ms,间隔50ms总900ms
-		 case  1850:Led_Tail23_BreathOpen();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
+		 case  50:Led_Tail715_WaterOpen(80);break;//启动自身转向30%PWM流水12*60ms,等待B流水600ms,总1320ms
+		 case  1370:Led_Tail715_OpenMax();break;//启动自身转向30%PWM流水12*60ms,等待B流水600ms,总1320ms
+		 case  2690:test1();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
+		 case  2990:test2();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
 		 //case  3405:Led_Tail1_BreathOpen();break;//启动自身1 呼吸点亮255ms,间隔300ms总555ms
 		 //case  3960:break;//此时A灯位置6呼吸开
-		 case  3955:Timer1_Stop();for(;;);break;//停止计时，进入死循环
+		 case  5000:Timer1_Stop();for(;;);break;//停止计时，进入死循环
 		 default:break;
 
 		}
 	}
 }
+extern void breath_1(void);
 void Bye(void)
 {
 	while(1)
 	{
 		switch(Time_Counter)
 		{
-//		case  0:Timer1_Start();break;//???????
-//		case  50:Led_RT_WaterOpen();delay_ms(280);Led_RT_WaterClose();break;//60ms等待B,启动自身转向流水4*20ms,间隔200ms,等待200ms,总540
-//		case  590:Led_RT_WaterOpen();delay_ms(280);Led_RT_WaterClose();break;//60ms等待B,启动自身转向流水4*20ms,间隔200ms,等待200ms,总540
-//		case  1130:break;//???A????????100ms,??300ms
-//		case  1430:break;//???A ????255ms,???300ms,??555ms
-//		case  1985:Led_Tail1_BreathClose();break;//A??????255ms,B??????255ms?????300ms,??555ms
-//		case  2540:Led_Tail23_BreathClose();break;//A??????255ms,B??????255ms?????300ms,??555ms
-//		case  3095:delay_ms(500);Led_Tail715_WaterClose(80);break;//???A???300ms,??????????????12*50ms?????300ms,??1400ms
-//		case  4495:delay_ms(500);Led_Tail715_WaterClose(0);break;//???A???300ms,??????????????12*50ms?????300ms,??1400ms
-//		case  5895:Timer1_Stop();for(;;);break;//??????????????
-//		default:break;
 		 case  0:break;//启动等待
 		 case  50:break;//等待A关闭制动灯100ms,总300ms
 		 case  350:break;//等待A 呼吸255ms,间隔300ms,总555ms
-		 case  650:Led_Tail1_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
+		 case  650:Led_Tail1_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔340ms,总555ms
+		 case  950:breath_1();break;//A呼吸关255ms,B呼吸关255ms，间隔340ms,总555ms
 		 //case  1460:Led_Tail23_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
-		 case  1250:delay_ms(400);Led_Tail715_WaterClose(80);break;//等待A流水400ms,启动自身转向流水12*40ms，间隔20ms,总900ms
-		 case  2150:delay_ms(400);Led_Tail715_WaterClose(0);break;//等待A流水400ms,启动自身转向流水12*40ms，间20ms,总900ms
-		 case  3060:Timer1_Stop();for(;;);break;//灯光全灭，进入死循环
+		 case  1930:Led_Tail715_WaterClose(80);break;//等待A流水600ms,启动自身转向流水12*50ms，总1120ms
+		 case  3250:Led_Tail715_WaterClose(0);break;//等待A流水600ms,启动自身转向流水12*50ms，总1120ms
+		 case  5000:Timer1_Stop();for(;;);break;//灯光全灭，进入死循环
 		 default:break;
 		}
 	}
