@@ -91,12 +91,11 @@ void Timer2_Stop(void)
 }
 void Timer3_Init(void)//1000
 {
-        T3CTL = 0xB1;   //      64m/8
-        T3H=0;
-        T3L=0;
-        T3REH=0x0F;             //4000
-        T3REL=0xA0;
-        Timer3_Start();
+	T3CTL = 0xB0;   //      64m/8
+	T3H=0;
+	T3L=0;
+	T3REH=0x75;             //4000
+	T3REL=0x30;
 }
 void Timer3_Start(void)
 {
@@ -236,15 +235,15 @@ void Led_Hello_Check(uint8_t Flag)
 	Tail_Status = TAIL;//43位置
 	RT_Status = RT;//转向
 	WB_Status = WB_EN;
-	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
-//	if(Tail_Status==1&&Flag==1)
+//	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
+	if(Tail_Status==1&&Flag==1)
 	{
 		Init_1ms();
 		Timer1_Start();
 		Hello();
 	}
-	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
-//	if(Tail_Status==1&&Flag==2)
+//	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
+	if(Tail_Status==1&&Flag==2)
 	{
 		Init_1ms();
 		LED_All_Open();//3265B全开除转向
@@ -340,7 +339,6 @@ void RT_Mode_Act(void)
 	case Mode1_Status:
 		Clear_RT();
 		Led_RT_WaterOpen();
-		Detect_RT();
 		break;
 	case Mode2_Status:
 		Clear_RT();

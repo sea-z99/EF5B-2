@@ -16,7 +16,7 @@ void Fog_Open(void)
 	char i;
 	for(i=OUT10;i<=OUT18;i++)
 	{
-		SPI_Write_2Byte(CS_U6,i,255);
+		SPI_Write_2Byte(CS_U6,i,0xFF);
 	}
 	SPI_Write_2Byte(CS_U6,0x37,0x00);//update
 }
@@ -34,18 +34,19 @@ void Led_RT_AllOpen(void)
 	char i;
 	for(i=OUT1;i<=OUT9;i++)
 	{
-		SPI_Write_2Byte(CS_U6,i,255);
+		SPI_Write_2Byte(CS_U6,i,0xFF);
 	}
 	SPI_Write_2Byte(CS_U6,0x37,0x00);//update
 }
 void Led_RT_AllClose(void)
 {
 	char i;
+	Timer3_Stop();
 	for(i=OUT1;i<=OUT9;i++)
 	{
-		SPI_Write_2Byte(CS_U6,i,0);
+		SPI_Write_Byte(CS_U6,i,0);
 	}
-	SPI_Write_2Byte(CS_U6,0x37,0x00);//update
+	SPI_Write_Byte(CS_U6,0x37,0x00);//update
 	TEST=0;
 }
 void Clear_RT(void)
@@ -74,42 +75,70 @@ void Detect_RT(void)
 void Led_Tail_AllOpen(void)
 {
 	char i;
-	SPI_Write_2Byte(CS_U2,OUT1,0x3F);//25%
-	SPI_Write_2Byte(CS_U2,OUT2,0x55);//25%
-	SPI_Write_2Byte(CS_U2,OUT3,0x55);//25%
+	SPI_Write_2Byte(CS_U2,OUT1,0x80);//50%
+	SPI_Write_2Byte(CS_U2,OUT2,0x99);//60%
+	SPI_Write_2Byte(CS_U2,OUT3,0x99);//60%
 	for(i=OUT4;i<=OUT7;i++)
 	{
-		SPI_Write_2Byte(CS_U2,i,0xBF);//75%
+		SPI_Write_2Byte(CS_U2,i,0xCC);//80%
 	}
 	for(i=OUT8;i<=OUT15;i++)
 	{
-		SPI_Write_2Byte(CS_U2,i,0xFF);//86%
+		SPI_Write_2Byte(CS_U2,i,0xCC);//80%
 	}
 	SPI_Write_2Byte(CS_U2,0x37,0x00);//update
 }
 void Led_Tail_AllClose(void)
 {
 	char i;
-	SPI_Write_2Byte(CS_U2,OUT1,0);//25%
-	SPI_Write_2Byte(CS_U2,OUT2,0);//25%
-	SPI_Write_2Byte(CS_U2,OUT3,0);//25%
+	SPI_Write_2Byte(CS_U2,OUT1,0);//0%
+	SPI_Write_2Byte(CS_U2,OUT2,0);//0%
+	SPI_Write_2Byte(CS_U2,OUT3,0);//0%
 	for(i=OUT4;i<=OUT15;i++)
 	{
-		SPI_Write_2Byte(CS_U2,i,0);//25%
+		SPI_Write_2Byte(CS_U2,i,0);//0%
 	}
 	SPI_Write_2Byte(CS_U2,0x37,0x00);//update
 }
+uint8_t RT_Num = 0;
+uint8_t RT_Water_Flag = 0;
+void Led_RT_WaterOpen_Callback(void)
+{
+    RT_Water_Flag = 1;
+}
+void Led_RT_WaterOpen_Loop(void)
+{
+  if(RT_Water_Flag)
+  {
+    RT_Water_Flag = 0;
+	if(RT_Num>=OUT2)
+	{
+	  SPI_Write_2Byte(CS_U6,RT_Num+1,0xFF);//91%
+	  SPI_Write_2Byte(CS_U6,RT_Num,0xFF);//91%
+	  SPI_Write_2Byte(CS_U6,RT_Num-1,0xFF);//91%
+	  SPI_Write_2Byte(CS_U6,0x37,0x00);//update
+	  RT_Num -= 3;
+	}
+	else
+	{
+	  Timer3_Stop();
+	  Detect_RT();
+	}
+}
+}
 void Led_RT_WaterOpen(void)//转向流水开，50ms
 {
-	char i;
-	for(i=OUT8;i>=OUT2;i-=3)
-	{
-		SPI_Write_2Byte(CS_U6,i+1,0xFF);//100%
-		SPI_Write_2Byte(CS_U6,i,0xFF);//100%
-		SPI_Write_2Byte(CS_U6,i-1,0xFF);//100%
-		SPI_Write_2Byte(CS_U6,0x37,0x00);//update
-		delay_ms(RT_Interval);
-	}
+//	char i;
+//	for(i=OUT8;i>=OUT2;i-=3)
+//	{
+//		SPI_Write_2Byte(CS_U6,i+1,0xFF);//100%
+//		SPI_Write_2Byte(CS_U6,i,0xFF);//100%
+//		SPI_Write_2Byte(CS_U6,i-1,0xFF);//100%
+//		SPI_Write_2Byte(CS_U6,0x37,0x00);//update
+//		delay_ms(RT_Interval);
+//	}
+    RT_Num = OUT8;
+    Timer3_Start();
 }
 void Led_RT_WaterClose(void)//转向流水关
 {
