@@ -11,7 +11,7 @@ void main()
 {
 	Init_OSC(1); //将系统时钟初始化为32M、使用外部晶振，
 	Init_GPIO();
-	Timer3_Init();
+	Timer5_Init();
 	IS31FL3265B_Init();
 	PUIE=1; //使能外设中断
 	AIE=1; //总中断开启
@@ -25,6 +25,7 @@ void main()
         }
 		Tail_Fog_Check_Input();
 		RT_Check_Input();
+		Led_RT_WaterOpen_Loop();
 	}
 }
 //中断函数0:0X04入口地址
@@ -40,10 +41,10 @@ void int_fun0() __interrupt (0)
 		T2IF=0;
 		Hello_Bye_Callback();
 	}
-    if(T3IE & T3IF) //1ms中断
+    if(T5IE & T5IF) //1ms中断
     {
-            T3IF=0;
-            //Stop_PWM();
+		T5IF=0;
+		Led_RT_WaterOpen_Callback();
     }
 	if(INT0IE && INT0IF) //INT0中断的响应
 	{

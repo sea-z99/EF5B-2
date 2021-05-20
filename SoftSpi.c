@@ -46,6 +46,24 @@ void Spi_CS_Low(char id)
 		case 2:CS2LOW;break;
 	}
 }
+void Spi_CS_High1(char id)
+{
+	switch(id)
+	{
+		case 0:CS1HIGH;CS2HIGH;break;
+		case 1:CS1HIGH;break;
+		case 2:CS2HIGH;break;
+	}
+}
+void Spi_CS_Low1(char id)
+{
+	switch(id)
+	{
+		case 0:CS1HIGH;CS2HIGH;break;
+		case 1:CS1LOW;break;
+		case 2:CS2LOW;break;
+	}
+}
 void SPI_Write_2Byte(unsigned char id,unsigned char addr,unsigned char dat)
 {
 	char i=0;
@@ -65,13 +83,32 @@ void SPI_Write_2Byte(unsigned char id,unsigned char addr,unsigned char dat)
 	buf =SSCI2BUFR;
 	Spi_CS_High(id);
 }
+void SPI_Write_Byte(unsigned char id,unsigned char addr,unsigned char dat)
+{
+	char i=0;
+	volatile unsigned buf;
+	volatile unsigned char SPI_adr, SPI_data;
+	SPI_adr =addr;
+	SPI_data =dat;
+	Spi_CS_Low1(id);
+	SSCI2BUFR=SPI_adr; //将待发送的字节放入发送缓存中
+	while(!SSCI2IF); //等待发送完毕后SSCIIF置位，
+	SSCI2IF=0;
+	buf =SSCI2BUFR;
+
+	SSCI2BUFR=SPI_data; //将待发送的字节放入发送缓存中
+	while(!SSCI2IF); //等待发送完毕后SSCIIF置位，
+	SSCI2IF=0;
+	buf =SSCI2BUFR;
+	Spi_CS_High1(id);
+}
 uint8_t SPI_Read(uint8_t id,uint8_t addr)
 {
 	char i=0;
 	volatile unsigned buf;
 	volatile unsigned char SPI_adr;
 	SPI_adr =addr|0x80;
-	Spi_CS_Low(id);
+	Spi_CS_Low1(id);
 	SSCI2BUFR=SPI_adr; //将待发送的字节放入发送缓存中
 	while(!SSCI2IF); //等待发送完毕后SSCIIF置位，
 	SSCI2IF=0;
@@ -81,7 +118,7 @@ uint8_t SPI_Read(uint8_t id,uint8_t addr)
 	while(!SSCI2IF); //等待发送完毕后SSCIIF置位，
 	SSCI2IF=0;
 	buf =SSCI2BUFR;
-	Spi_CS_High(id);
+	Spi_CS_High1(id);
 	return buf;
 }
 void IS31FL3265B_Init(void)

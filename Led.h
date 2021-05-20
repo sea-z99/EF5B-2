@@ -49,5 +49,7 @@ void Led_Tail1_BreathOpen(void);
 void Led_Tail1_BreathClose(void);
 void Led_RT_WaterOpen(void);
 void Led_RT_WaterClose(void);
+void Led_RT_WaterOpen_Loop(void);
+void Led_RT_WaterOpen_Callback(void);
 void LED_All_Open(void);
 #endif /* LED_H_ */

@@ -89,26 +89,26 @@ void Timer2_Stop(void)
 	T2ON = 0;		//T2定时器停止
 	T2IE = 0;
 }
-void Timer3_Init(void)//1000
+void Timer5_Init(void)//1000
 {
-        T3CTL = 0xB1;   //      64m/8
-        T3H=0;
-        T3L=0;
-        T3REH=0x0F;             //4000
-        T3REL=0xA0;
-        Timer3_Start();
+	T5CTL0 = 0x0B;	//	时钟源是SCLK-32M，预分频16，后分频2
+	T5CTL1 = 0x02; //向上计数,时钟源是SCLK-32M，
+	T5H=0;
+	T5L=0;
+	PP70H=0x4E;		//1000
+	PP70L=0x20;
 }
-void Timer3_Start(void)
+void Timer5_Start(void)
 {
-        T3ON = 1;               //T3定时器启动
-        T3IF = 0;
-        T3IE = 1;
+	T5ON = 1;		//T5定时器启动
+	T5IF = 0;
+	T5IE = 1;
 }
-void Timer3_Stop(void)
+void Timer5_Stop(void)
 {
-        T3IF = 0;
-        T3ON = 0;               //T2定时器停止
-        T3IE = 0;
+	T5ON = 0;		//T5定时器启动
+	T5IF = 0;
+	T5IE = 0;
 }
 void PwmRisingInit(void)
 {
@@ -236,15 +236,15 @@ void Led_Hello_Check(uint8_t Flag)
 	Tail_Status = TAIL;//43位置
 	RT_Status = RT;//转向
 	WB_Status = WB_EN;
-	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
-//	if(Tail_Status==1&&Flag==1)
+//	if(Tail_Status==1&&RT_Status==1&&WB_Status==1)
+	if(Tail_Status==1&&Flag==1)
 	{
 		Init_1ms();
 		Timer1_Start();
 		Hello();
 	}
-	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
-//	if(Tail_Status==1&&Flag==2)
+//	if(Tail_Status==1&&RT_Status==1&&WB_Status==0)
+	if(Tail_Status==1&&Flag==2)
 	{
 		Init_1ms();
 		LED_All_Open();//3265B全开除转向
@@ -340,7 +340,6 @@ void RT_Mode_Act(void)
 	case Mode1_Status:
 		Clear_RT();
 		Led_RT_WaterOpen();
-		Detect_RT();
 		break;
 	case Mode2_Status:
 		Clear_RT();
