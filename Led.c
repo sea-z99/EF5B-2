@@ -139,6 +139,7 @@ void Led_RT_WaterOpen(void)//转向流水开，50ms
 //		delay_ms(RT_Interval);
 //	}
     RT_Num = OUT8;
+    RT_Water_Flag = 1;
     Timer5_Start();
 }
 void Led_RT_WaterClose(void)//转向流水关
