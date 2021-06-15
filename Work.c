@@ -95,8 +95,10 @@ void Timer5_Init(void)//1000
 	T5CTL1 = 0x02; //向上计数,时钟源是SCLK-32M，
 	T5H=0;
 	T5L=0;
-    PP70H=0x75;             //30000
-    PP70L=0x30;
+//    PP70H=0x75;             //30000
+//    PP70L=0x30;
+    PP70H=0x9C;             //40000
+    PP70L=0x40;
 }
 void Timer5_Start(void)
 {
