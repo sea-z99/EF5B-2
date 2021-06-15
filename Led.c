@@ -119,11 +119,13 @@ void Led_RT_WaterOpen_Loop(void)
 	  SPI_Write_2Byte(CS_U6,RT_Num-1,0xFF);//91%
 	  SPI_Write_2Byte(CS_U6,0x37,0x00);//update
 	  RT_Num -= 3;
+      delay_ms(1);
+      Detect_RT();
 	}
 	else
 	{
 	  Timer5_Stop();
-	  Detect_RT();
+//	  Detect_RT();
 	}
 }
 }
@@ -141,6 +143,7 @@ void Led_RT_WaterOpen(void)//转向流水开，50ms
     RT_Num = OUT8;
     RT_Water_Flag = 1;
     Timer5_Start();
+    Clear_RT();
 }
 void Led_RT_WaterClose(void)//转向流水关
 {
