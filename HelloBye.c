@@ -17,7 +17,7 @@ extern void test1(void);
 extern void test2(void);
 void Hello(void)
 {
-	while(1)
+	while(!Check_Hello_Bye())
 	{
 		switch(Time_Counter)
 		{
@@ -30,14 +30,14 @@ void Hello(void)
 		 //case  3960:break;//此时A灯位置6呼吸开
 		 case  5000:Timer1_Stop();for(;;);break;//停止计时，进入死循环
 		 default:break;
-
 		}
 	}
+	Led_Tail_AllClose();
 }
 extern void breath_1(void);
 void Bye(void)
 {
-	while(1)
+	while(!Check_Hello_Bye())
 	{
 		switch(Time_Counter)
 		{
@@ -53,5 +53,6 @@ void Bye(void)
 		 default:break;
 		}
 	}
+	Led_Tail_AllClose();
 }
 

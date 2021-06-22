@@ -395,3 +395,16 @@ void RT_Check_Input(void)
 	}
 	RT_Mode_Act();
 }
+uint8_t Check_Hello_Bye(void)
+{
+    RT_Status = RT;//转向
+    Fog_Status = FOG;//雾灯
+    return RT_Status|Fog_Status;
+}
+uint8_t Check_Music(void)
+{
+    RT_Status = RT;//转向
+    Fog_Status = FOG;//雾灯
+    Tail_Status= TAIL;
+    return RT_Status|Fog_Status|Tail_Status;
+}
