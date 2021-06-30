@@ -28,7 +28,7 @@ void Hello(void)
 		 case  3000:test2();break;//启动自身位置23 呼吸点亮255ms,间隔300ms总555ms
 		 //case  3405:Led_Tail1_BreathOpen();break;//启动自身1 呼吸点亮255ms,间隔300ms总555ms
 		 //case  3960:break;//此时A灯位置6呼吸开
-		 case  5000:Timer1_Stop();for(;;);break;//停止计时，进入死循环
+		 case  5000:Timer1_Stop();break;//停止计时，进入死循环
 		 default:break;
 		}
 	}
@@ -49,7 +49,7 @@ void Bye(void)
 		 //case  1460:Led_Tail23_BreathClose();break;//A呼吸关255ms,B呼吸关255ms，间隔300ms,总555ms
 		 case  1930:Led_Tail715_WaterClose(80);break;//等待A流水600ms,启动自身转向流水12*50ms，总1120ms
 		 case  3250:Led_Tail715_WaterClose(0);break;//等待A流水600ms,启动自身转向流水12*50ms，总1120ms
-		 case  5000:Timer1_Stop();for(;;);break;//灯光全灭，进入死循环
+		 case  5000:Timer1_Stop();break;//灯光全灭，进入死循环
 		 default:break;
 		}
 	}
